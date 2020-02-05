@@ -1,0 +1,36 @@
+alpha
+ample
+range
+crate
+
+
+
+letter = "a"
+int indexFound = word.Length;
+
+
+for (int i=0; i<word.Length; i++) { // iterate through each letter
+	if (word[i] == letter) { // if letter matches guess
+		if (indexFound != word.Length) { // if letter already found
+			indexFound = -1; // set letter to not found again so it doesn't store in list
+		else { // if letter hasn't been found yet
+		indexFound = i; // set indexFound to index letter exists at
+		}
+if (indexFound != -1) { // if letter was 'found' in word
+	wordGroups[indexFound].Add(word); // add word to list in wordGroups array corresponding to the index it was found at
+}
+
+wordGroups = [list0, list1, list2, list3, list4, list5]
+
+		
+range
+
+indexFound = 1
+i = 4
+word.Length = 5
+
+01234
+length = 5
+
+This is O(n) time complexity for each word
+When we layer this inside a for loop iterating over each word in the dictionary, the complexity becomes O(n^2)

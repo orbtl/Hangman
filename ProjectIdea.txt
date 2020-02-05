@@ -39,3 +39,5 @@ nevermind:
 	-basic logic for brekaing dictionary down:
 		-for loop over dictionary
 			-break down into lists with having the letter at different indexes, and another list for words that don't have hte letter at all.  then choose the list with the longest length/count
+
+-After breaking down into groups, loop over each group to check if each word... logic in findLetterAlgo
