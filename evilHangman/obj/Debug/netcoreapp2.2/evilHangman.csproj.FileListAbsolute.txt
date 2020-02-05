@@ -1,0 +1,11 @@
+C:\Users\Charles\Desktop\CodingDojo\cSharpStack\Hackathon\evilHangman\bin\Debug\netcoreapp2.2\evilHangman.deps.json
+C:\Users\Charles\Desktop\CodingDojo\cSharpStack\Hackathon\evilHangman\bin\Debug\netcoreapp2.2\evilHangman.runtimeconfig.json
+C:\Users\Charles\Desktop\CodingDojo\cSharpStack\Hackathon\evilHangman\bin\Debug\netcoreapp2.2\evilHangman.runtimeconfig.dev.json
+C:\Users\Charles\Desktop\CodingDojo\cSharpStack\Hackathon\evilHangman\bin\Debug\netcoreapp2.2\evilHangman.dll
+C:\Users\Charles\Desktop\CodingDojo\cSharpStack\Hackathon\evilHangman\bin\Debug\netcoreapp2.2\evilHangman.pdb
+C:\Users\Charles\Desktop\CodingDojo\cSharpStack\Hackathon\evilHangman\obj\Debug\netcoreapp2.2\evilHangman.csprojAssemblyReference.cache
+C:\Users\Charles\Desktop\CodingDojo\cSharpStack\Hackathon\evilHangman\obj\Debug\netcoreapp2.2\evilHangman.csproj.CoreCompileInputs.cache
+C:\Users\Charles\Desktop\CodingDojo\cSharpStack\Hackathon\evilHangman\obj\Debug\netcoreapp2.2\evilHangman.AssemblyInfoInputs.cache
+C:\Users\Charles\Desktop\CodingDojo\cSharpStack\Hackathon\evilHangman\obj\Debug\netcoreapp2.2\evilHangman.AssemblyInfo.cs
+C:\Users\Charles\Desktop\CodingDojo\cSharpStack\Hackathon\evilHangman\obj\Debug\netcoreapp2.2\evilHangman.dll
+C:\Users\Charles\Desktop\CodingDojo\cSharpStack\Hackathon\evilHangman\obj\Debug\netcoreapp2.2\evilHangman.pdb
