@@ -1,0 +1,41 @@
+HANGMAN
+-MVP is basic hangman single player game taking from random word in a dictionary
+-If we complete crazy fast, maybe try to implement "evil hangman"
+
+Need:
+	-A list of words
+	-a player class?
+	-
+
+
+
+Game progression:
+Shows underscores to show number of letters
+Allows player to choose a letter to guess
+	-show that letter in some kind of pool so that they've already chosen it 
+	-remove it from possible letter choices
+	-if letter exists in the word, reveal that letter in all locations it exists in that word
+	-if guess incorrectly (letter doesn't exist in word), lower remaining guesses and adjust ascii art accordingly
+	-if guesses gets to 0, have end game logic
+	-or if the entire word has been guessed/revealed, win game logic
+	-play again/quit
+
+
+IF we were to do evil hangman:
+	-First off have to be working off a full english dictionary
+	-with each turn, adjust the word to try to not have any of the already guessed letters in it
+	-Okay so start by choosing a difficulty which is represented by a range of word lengths
+	-randomize a number value in that range for word length
+	-select from the dictionary into a new list only words that are that length
+	-display to user the number of characters with underscores
+	-when user guesses, pare down dictionary into words that don't have that letter
+		-if the dictionary list still has entries, user loses a guess and move on
+		-if dictionary has no entries left, go back and reveal that letter (how??)
+
+nevermind:
+	-when user guesses:
+		-break down existing dictionary into groups represented by position of that letter (if it exists)
+		-choose the group that has the most words in it
+	-basic logic for brekaing dictionary down:
+		-for loop over dictionary
+			-break down into lists with having the letter at different indexes, and another list for words that don't have hte letter at all.  then choose the list with the longest length/count
