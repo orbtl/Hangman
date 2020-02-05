@@ -6,6 +6,7 @@ public class Computer
     public int wordLength;
     public List<string> currentDict;
     public string[] wordStatus;
+    public int correctLetters;
     public void startGame(){
         System.Console.WriteLine("Welcome to Evil Hangman!  Are you prepared to face your certain demise!?");
         System.Console.WriteLine("Please enter your name");
@@ -55,6 +56,10 @@ public class Computer
 
     public void displayTurn(string msg=""){
         Console.Clear();
+        if (this.correctLetters == this.wordLength) {
+            this.winGame();
+            return;
+        }
         System.Console.WriteLine($"***************** Letters you can still choose ***********************");
 
         foreach( string letter in this.User.AvailLetters){
@@ -88,6 +93,8 @@ public class Computer
 
     public void determineWord(string letter){
         int indexFound;
+        System.Console.WriteLine($"Debug: currentDict length: {currentDict.Count}");
+        System.Console.WriteLine($"Debug: currentDict[0] = {currentDict[0]}");
         List<List<string>> wordGroups = new List<List<string>>();
         for(int j=0; j <= this.currentDict[0].Length; j++){
             wordGroups.Add(new List<string>());
@@ -108,6 +115,9 @@ public class Computer
                 wordGroups[indexFound].Add(word);
             }
         }
+        foreach (List<string> wordGroup in wordGroups) {
+            System.Console.WriteLine($"word group length: {wordGroup.Count}");
+        }
         int maxLength = wordGroups[0].Count;
         int correctIndex = 0;
         for( int k =1; k < wordGroups.Count; k++){
@@ -116,7 +126,22 @@ public class Computer
                 correctIndex = k;
             }
         }
+        if (wordGroups[correctIndex].Count == 0) { // no words available without doubles
+            while (this.currentDict.Count > 1) {
+                this.currentDict.RemoveAt(this.currentDict.Count-1);
+            }
+            for (int l=0; l<this.currentDict[0].Length; l++) {
+                if (this.currentDict[0][l].ToString() == letter) {
+                    this.wordStatus[l] = letter;
+                    this.correctLetters ++;
+                }
+            }
+            this.displayTurn();
+            return;
+        }
         this.currentDict = wordGroups[correctIndex];
+        System.Console.WriteLine($"current dict length: {this.currentDict.Count}");
+        System.Console.WriteLine($"current dict[0]: {this.currentDict[0]}");
         if (correctIndex >= this.wordLength) {
             this.User.Guesses --;
             if (this.User.Guesses == 0){
@@ -129,6 +154,7 @@ public class Computer
         }
         else {
             this.wordStatus[correctIndex] = letter;
+            this.correctLetters ++;
             this.displayTurn();
         }
         return;
@@ -136,6 +162,18 @@ public class Computer
     public void gameOver(){
         System.Console.WriteLine("GAME OVER!!!! YOU LOSE!!!!");
         System.Console.WriteLine($"The word may or may not have been '{this.currentDict[0]}'");
+        System.Console.WriteLine("Would you like to play again? (y/n)");
+        string input = Console.ReadLine().ToLower();
+        if (input == "y") {
+            this.startGame();
+            return;
+        }
+        else {
+            return;
+        }
+    }
+    public void winGame(){
+        System.Console.WriteLine("YOU WON!  OH MY GOD YOU MUST  BE CHEATING!  AMAZING!");
         System.Console.WriteLine("Would you like to play again? (y/n)");
         string input = Console.ReadLine().ToLower();
         if (input == "y") {
