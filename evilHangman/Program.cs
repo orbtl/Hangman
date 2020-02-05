@@ -6,12 +6,10 @@ namespace evilHangman
     {
         static void Main(string[] args)
         {
-            wordDict myDict = new wordDict();
-            myDict.generate();
-            
-            // Console.Clear();
-            // Computer enemy = new Computer();
-            // enemy.startGame();
+            Console.Clear();
+            Computer enemy = new Computer();
+            enemy.startGame();
+            enemy.displayTurn();
             // while (1==1) {
             //     Computer.nextTurn();
             //     if (Computer.gameOver == true){
