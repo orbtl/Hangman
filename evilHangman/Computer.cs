@@ -10,6 +10,7 @@ public class Computer
     public void startGame(){
         System.Console.WriteLine("Welcome to Evil Hangman!  Are you prepared to face your certain demise!?");
         System.Console.WriteLine("Please enter your name");
+        this.correctLetters = 0;
         string name = Console.ReadLine();
         this.User = new Player(name);
         System.Console.WriteLine($"Welcome, {this.User.Name}!");
