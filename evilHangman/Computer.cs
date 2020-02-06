@@ -9,6 +9,18 @@ public class Computer
     public int correctLetters;
     public string[] drawing;
     public void startGame(){
+        System.Console.WriteLine(@"
+oooooooooooo              o8o  oooo       ooooo   ooooo                                                                          
+`888'     `8              `''  `888       `888'   `888'                                                                          
+ 888         oooo    ooo oooo   888        888     888   .oooo.   ooo. .oo.    .oooooooo ooo. .oo.  .oo.    .oooo.   ooo. .oo.   
+ 888oooo8     `88.  .8'  `888   888        888ooooo888  `P  )88b  `888P'Y88b  888' `88b  `888P'Y88bP'Y88b  `P  )88b  `888P'Y88b  
+ 888    '      `88..8'    888   888        888     888   .oP'888   888   888  888   888   888   888   888   .oP'888   888   888  
+ 888       o    `888'     888   888        888     888  d8(  888   888   888  `88bod8P'   888   888   888  d8(  888   888   888  
+o888ooooood8     `8'     o888o o888o      o888o   o888o `Y888''8o o888o o888o `8oooooo.  o888o o888o o888o `Y888''8o o888o o888o 
+                                                                              d'     YD                                          
+                                                                              'Y88888P'                                          
+                                                                                                                                 
+");
         System.Console.WriteLine("Welcome to Evil Hangman!  Are you prepared to face your certain demise!?");
         System.Console.WriteLine("Please enter your name");
         this.correctLetters = 0;
@@ -170,7 +182,20 @@ public class Computer
         return;
     }
     public void gameOver(){
-        System.Console.WriteLine("GAME OVER!!!! YOU LOSE!!!!");
+        Console.Clear();
+        System.Console.WriteLine(@"
+  .oooooo.          .o.       ooo        ooooo oooooooooooo        .oooooo.   oooooo     oooo oooooooooooo ooooooooo.   
+ d8P'  `Y8b        .888.      `88.       .888' `888'     `8       d8P'  `Y8b   `888.     .8'  `888'     `8 `888   `Y88. 
+888               .8'888.      888b     d'888   888              888      888   `888.   .8'    888          888   .d88' 
+888              .8' `888.     8 Y88. .P  888   888oooo8         888      888    `888. .8'     888oooo8     888ooo88P'  
+888     ooooo   .88ooo8888.    8  `888'   888   888    '         888      888     `888.8'      888    '     888`88b.    
+`88.    .88'   .8'     `888.   8    Y     888   888       o      `88b    d88'      `888'       888       o  888  `88b.  
+ `Y8bood8P'   o88o     o8888o o8o        o888o o888ooooood8       `Y8bood8P'        `8'       o888ooooood8 o888o  o888o 
+                                                                                                                        
+                                                                                                                        
+                                                                                                                        
+");
+        System.Console.WriteLine("YOU LOSE!!!!");
         System.Console.WriteLine($"The word may or may not have been '{this.currentDict[0]}'");
         System.Console.WriteLine("Would you like to play again? (y/n)");
         string input = Console.ReadLine().ToLower();
@@ -183,6 +208,19 @@ public class Computer
         }
     }
     public void winGame(){
+        Console.Clear();
+        System.Console.WriteLine(@"
+  .oooooo.          .o.       ooo        ooooo oooooooooooo        .oooooo.   oooooo     oooo oooooooooooo ooooooooo.   
+ d8P'  `Y8b        .888.      `88.       .888' `888'     `8       d8P'  `Y8b   `888.     .8'  `888'     `8 `888   `Y88. 
+888               .8'888.      888b     d'888   888              888      888   `888.   .8'    888          888   .d88' 
+888              .8' `888.     8 Y88. .P  888   888oooo8         888      888    `888. .8'     888oooo8     888ooo88P'  
+888     ooooo   .88ooo8888.    8  `888'   888   888    '         888      888     `888.8'      888    '     888`88b.    
+`88.    .88'   .8'     `888.   8    Y     888   888       o      `88b    d88'      `888'       888       o  888  `88b.  
+ `Y8bood8P'   o88o     o8888o o8o        o888o o888ooooood8       `Y8bood8P'        `8'       o888ooooood8 o888o  o888o 
+                                                                                                                        
+                                                                                                                        
+                                                                                                                        
+");
         System.Console.WriteLine("YOU WON!  OH MY GOD YOU MUST  BE CHEATING!  AMAZING!");
         System.Console.WriteLine("Would you like to play again? (y/n)");
         string input = Console.ReadLine().ToLower();

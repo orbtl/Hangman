@@ -9,7 +9,6 @@ namespace evilHangman
             Console.Clear();
             Computer enemy = new Computer();
             enemy.startGame();
-            enemy.displayTurn();
             // while (1==1) {
             //     Computer.nextTurn();
             //     if (Computer.gameOver == true){
