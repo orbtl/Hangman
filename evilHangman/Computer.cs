@@ -7,12 +7,14 @@ public class Computer
     public List<string> currentDict;
     public string[] wordStatus;
     public int correctLetters;
+    public string[] drawing;
     public void startGame(){
         System.Console.WriteLine("Welcome to Evil Hangman!  Are you prepared to face your certain demise!?");
         System.Console.WriteLine("Please enter your name");
         this.correctLetters = 0;
         string name = Console.ReadLine();
         this.User = new Player(name);
+        this.generateASCII();
         System.Console.WriteLine($"Welcome, {this.User.Name}!");
         this.calcDifficulty();
     }
@@ -62,16 +64,23 @@ public class Computer
             return;
         }
         System.Console.WriteLine($"***************** Letters you can still choose ***********************");
-
+        System.Console.WriteLine("");
         foreach( string letter in this.User.AvailLetters){
             System.Console.Write($" {letter}");
         }
         System.Console.WriteLine("");
-        System.Console.WriteLine("______________________________");
+        System.Console.WriteLine("");
+        System.Console.WriteLine("______________________________________________________________________");
+        System.Console.WriteLine("");
+        System.Console.WriteLine(this.drawing[this.User.Guesses]);
+        System.Console.WriteLine("");
+
         System.Console.Write("                  ");
         foreach(string place in this.wordStatus){
             System.Console.Write($"{place} ");
         }
+        System.Console.WriteLine("");
+        System.Console.WriteLine("");
         System.Console.WriteLine("");
         System.Console.WriteLine($"You have {this.User.Guesses} guesses remaining...");
         System.Console.WriteLine(msg);
@@ -94,8 +103,8 @@ public class Computer
 
     public void determineWord(string letter){
         int indexFound;
-        System.Console.WriteLine($"Debug: currentDict length: {currentDict.Count}");
-        System.Console.WriteLine($"Debug: currentDict[0] = {currentDict[0]}");
+        // System.Console.WriteLine($"Debug: currentDict length: {currentDict.Count}");
+        // System.Console.WriteLine($"Debug: currentDict[0] = {currentDict[0]}");
         List<List<string>> wordGroups = new List<List<string>>();
         for(int j=0; j <= this.currentDict[0].Length; j++){
             wordGroups.Add(new List<string>());
@@ -116,9 +125,9 @@ public class Computer
                 wordGroups[indexFound].Add(word);
             }
         }
-        foreach (List<string> wordGroup in wordGroups) {
-            System.Console.WriteLine($"word group length: {wordGroup.Count}");
-        }
+        // foreach (List<string> wordGroup in wordGroups) {
+        //     System.Console.WriteLine($"word group length: {wordGroup.Count}");
+        // }
         int maxLength = wordGroups[0].Count;
         int correctIndex = 0;
         for( int k =1; k < wordGroups.Count; k++){
@@ -141,8 +150,8 @@ public class Computer
             return;
         }
         this.currentDict = wordGroups[correctIndex];
-        System.Console.WriteLine($"current dict length: {this.currentDict.Count}");
-        System.Console.WriteLine($"current dict[0]: {this.currentDict[0]}");
+        // System.Console.WriteLine($"current dict length: {this.currentDict.Count}");
+        // System.Console.WriteLine($"current dict[0]: {this.currentDict[0]}");
         if (correctIndex >= this.wordLength) {
             this.User.Guesses --;
             if (this.User.Guesses == 0){
@@ -184,5 +193,60 @@ public class Computer
         else {
             return;
         }
+    }
+    public void generateASCII(){
+        this.drawing = new string[8];
+        drawing[0] = "";
+        drawing[7] = @"  +---+
+  |   |
+      |
+      |
+      |
+      |
+=========";
+        drawing[6] = @"  +---+
+  |   |
+  O   |
+      |
+      |
+      |
+=========";
+        drawing[5] = @"  +---+
+  |   |
+  O   |
+  |   |
+      |
+      |
+=========";
+        drawing[4] = @"  +---+
+  |   |
+  O   |
+ /|   |
+      |
+      |
+=========";
+        drawing[3] = @"  +---+
+  |   |
+  O   |
+ /|\  |
+      |
+      |
+=========";
+        drawing[2] = @"  +---+
+  |   |
+  O   |
+ /|\  |
+ /    |
+      |
+=========";
+        drawing[1] = @"  +---+
+  |   |
+  O   |
+ /|\  |
+ / \  |
+      |
+=========";
+        
+
     }
 }

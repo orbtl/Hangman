@@ -6,7 +6,7 @@ public class Player
     public List<string> AvailLetters {get; set;}
     public Player(string name) {
         this.Name = name;
-        this.Guesses = 10;
+        this.Guesses = 7;
         this.resetLetters();
     }
     public void resetLetters(){
